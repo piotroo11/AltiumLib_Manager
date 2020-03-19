@@ -1,0 +1,12 @@
+CSV/
+DataBase/
+.idea/
+__pycache__/
+dist/
+venv/
+build/
+log.log
+log.txt
+debug.log
+config.ini
+createMDB.spec
