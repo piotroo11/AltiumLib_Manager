@@ -1,0 +1,10 @@
+DesignItemId,Alt_FootprintRef_1,Alt_FootprintRef_2,Alt_FootprintRef_3,Alt_FootprintPath_1,Alt_FootprintPath_2,Alt_FootprintPath_3,Alt_LibraryRef,Alt_LibraryPath,Alt_Description,Alt_Comment,Author,Family,Component Kind,Footprint,HelpURL,Manufacturer,Manufacturer Part Number,Manufacturer 1 Example,Manufacturer 1 Part Number,Manufacturer 1 Component Height,Mounted,Part Description,Pin Count,PressFit,Sense,SMD,Socket,Status,Supplier 1,Supplier 2,Supplier 3,Create Date,LatestRevisionDate,Supplier Part Number 1,Supplier Part Number 2,Supplier Part Number 3
+ANT_BT_2P4GHZ_PCB,ANTENNA_BT_2.4GHZ,,,\PcbLib\PCB Features.PcbLib,,,Antenna GND-1 IN-2,\SchLib\Antennas.SchLib,"PCB Bluetooth Antenna, 15.2x5.7mm, 2.4GHz, Based on TI AN043",'=Family',KB,BT,Standard,ANTENNA_BT_2.4GHZ,http://www.ti.com/lit/an/swra117d/swra117d.pdf,NONE,,,,0mm,No,"PCB Bluetooth Antenna, 15.2x5.7mm, 2.4GHz, Based on TI AN043",2,No,No,Yes,No,Recommended,,,,01.08.2019,01.08.2019,,,
+W3008,W3008,W3008_MIRRORED,,\PcbLib\SMD_Antennas.PcbLib,\PcbLib\SMD_Antennas.PcbLib,,Antenna GND-1 IN-2,\SchLib\Antennas.SchLib,Antennas 2.4GHz BlueTooth Ceramic Antenna,'=Family',KB,W3008,Standard,1206 (3216 metric),https://pl.mouser.com/datasheet/2/336/-836.pdf,PulseLarsen,W3008,PulseLarsen,W3008,0mm,Yes,Antennas 2.4GHz BlueTooth Ceramic Antenna,3,No,No,Yes,No,Recommended,Mouser,Farnell,Digi-Key,06.10.2019,06.10.2019,673-W3008,2897223,553-1530-1-ND
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,`,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

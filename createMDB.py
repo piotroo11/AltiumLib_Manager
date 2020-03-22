@@ -47,18 +47,11 @@ start = False
 endSignal = activator()
 
 
-@QtCore.Slot(list)
-def setNames(Names):
-    global names
-    names = Names
-
-
 class animateTiles(View):
 
     def __init__(self, parent=None):
 
         self.thread = databaseThread()
-        self.thread.namesSignal.connect(setNames)
         self.thread.start()
         self.bgPix = QtGui.QPixmap('img/bg.jpg')
         self.scene = QtWidgets.QGraphicsScene(0, 0, 835, 470)
@@ -114,7 +107,7 @@ class animateTiles(View):
                                           QtCore.QPointF(10, 440))
             # Centered.
             self.centeredState.assignProperty(item, 'pos',
-                                         QtCore.QPointF(312 - (self.kineticPix.width() * len(self.items) * 0.5 * 0.3) - (self.kineticPix.width() * 0.5) + i * self.kineticPix.width() * 0.3, -50 - self.kineticPix.height() * 0.5))
+                                         QtCore.QPointF(312 - (self.kineticPix.width() * len(self.items) * 0.5 * 0.3) - (self.kineticPix.width() * 0.5) + i * self.kineticPix.width() * 0.3, 350 - self.kineticPix.height() * 0.5))
             self.centeredState.assignProperty(self.endItem, 'pos',
                                     QtCore.QPointF(0, 1000))
             self.centeredState.assignProperty(self.text[i], 'pos',
@@ -167,7 +160,6 @@ class animateTiles(View):
 
 class databaseThread(QThread):
 
-    namesSignal = Signal(list)
     def __init__(self, parent=None):
         QThread.__init__(self, parent)
         self.exiting = False
@@ -188,7 +180,7 @@ class databaseThread(QThread):
             config = configparser.RawConfigParser()
             config.optionxform = str
             config['GENERAL'] = {'ALTIUM_LIB_PATH': 'default',
-                                 'ODBC_DRIVER': 'Microsoft Access Driver (*.mdb)',
+                                 'ODBC_DRIVER': 'Microsoft Access Driver (*.mdb, *.accdb)',
                                  'OPEN_ALTIUM': 'false',
                                  'ALTIUM_PATH': 'C:\Program Files\Altium\AD19\X2.EXE',
                                  'GIT_CHECKOUT.': 'false',
@@ -201,14 +193,7 @@ class databaseThread(QThread):
             settings = configparser.RawConfigParser()
             settings.optionxform = str
 
-            settings['STRUCTURE'] = {'Antennas And RF Components': 'Antennas',
-                                 'Capacitors': 'Capacitors_SMD,Capacitors_THD',
-                                 'Connectors': 'Connectors_SMD,Connectors_THD',
-                                 'ICs And Semiconductors': 'ADCs,Amplifiers,Amplifiers,Crystals_and_Oscillators,DACs,Diodes,LEDs,Memories,Microcontrollers,Regulators,Transistors',
-                                 'Inductors': 'Inductors_SMD,Inductors_THD',
-                                 'Mechanical And PCB Features': 'Mechanical,PCB_Features',
-                                 'Relays And Switches': 'Relays_SMD,Relays_THD,Switches_SMD,Switches_THD',
-                                 'Resistors': 'Resistors_SMD,Thermistors_SMD,Thermistors_THD'}
+            settings['STRUCTURE'] = {'Antennas And RF Components': 'example'}
 
             settings['EXCEL'] = {'set_formulas_as_text': 'true',
                                  'formlas_conflict': 'Device,Family,Value,Color,Manufacturer 1 Part Number'}
@@ -360,6 +345,12 @@ class databaseThread(QThread):
                     noerror = 0
                     logging.error("ODBC DRIVER ERROR")
                     #print("ODBC DRIVER ERROR")
+        try:
+            os.remove(os.path.join(dirname, 'CSV/temp.csv'))  # DELETE CLEAN TEMP
+        except PermissionError:
+            pass
+        except FileNotFoundError:
+            pass
         #print("DONE!")
         endSignal.sig.emit()
 
